@@ -25,6 +25,7 @@ function App() {
             <Route path="/login" element={<Login isUserAuthenticated={isUserAuthenticated} />} />
             {/* wrap the component where  u want excess browser router wrap enable routinhg jha jha routing wha wrap by  roytes */}
             <Route path="/" element={<PrivateRoute isAuthenticated={isAuthenticated} />}>
+            {/* https://stackoverflow.com/questions/69923420/how-to-use-private-route-in-react-router-domv6 */}
               <Route path="/" element={<Home />} />
               {/* refresh krte hai back to login as isUserAuthenticated will be false  */}
             </Route>

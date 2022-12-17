@@ -5,6 +5,7 @@ import Posts from "./post/Post"
 import Categories from "./Categories";
 import {Grid} from "@mui/material"
 const Home =()=>{
+    // https://mui.com/material-ui/react-grid/
     return (
         <>
         <Banner/>
