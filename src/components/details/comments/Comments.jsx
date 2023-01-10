@@ -77,7 +77,7 @@ const Comments = ({ post }) => {
         getData()
     }, [post,togle])
     const addComment = async (e) => {
-        let res = await axios.post(`API_URL/comment/new`, comment, {
+        let res = await axios.post(`${API_URL}/comment/new`, comment, {
             headers: {
                 authorization: getAccessToken()
             }
