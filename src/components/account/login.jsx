@@ -122,7 +122,7 @@ const Login = ({isUserAuthenticated}) => {
 
         try{
             let res = await axios.post(`${API_URL}/signup`, signup);
-            alert(res.status);
+            // alert(res.status);
             showError('');
             setSignup(signupInitialValues);
             toggleAccount('login');
