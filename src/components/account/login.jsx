@@ -61,6 +61,10 @@ const Error = styled(Typography)`
     margin-top: 10px;
     font-weight: 600;
 `
+const Labelx=styled(TextField)`
+transform: none;
+
+`
 
 const loginInitialValues = {
     username: '',
@@ -186,9 +190,9 @@ const Login = ({isUserAuthenticated}) => {
                             <SignupButton onClick={() => toggleSignup()} style={{ marginBottom: 50 }}>Create an account</SignupButton>
                         </Wrapper> :
                         <Wrapper>
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='name' label='Enter Name' />
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='username' label='Enter Username' />
-                            <TextField variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
+                            <Labelx variant="standard" onChange={(e) => onInputChange(e)} name='name' label='Enter Name' />
+                            <Labelx variant="standard" onChange={(e) => onInputChange(e)} name='username' label='Enter Username' />
+                            <Labelx variant="standard" onChange={(e) => onInputChange(e)} name='password' label='Enter Password' />
                             {error && <Error>{error}</Error>}
                             <SignupButton onClick={() => signupUser()} >Signup</SignupButton>
                             <Text style={{ textAlign: 'center' }}>OR</Text>
