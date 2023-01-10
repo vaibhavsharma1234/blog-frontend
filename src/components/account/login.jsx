@@ -5,7 +5,7 @@ import { TextField, Box, Button, Typography, styled } from '@mui/material';
 // import { useNavigate } from 'react-router-dom';
 import { DataContext } from '../../context/DataProvider';
 import {useNavigate} from "react-router-dom"
-import { API } from '../../service/api';
+import { API ,API_URL} from '../../service/api';
 // import { DataContext } from '../../context/DataProvider';
 
 const Component = styled(Box)`
@@ -117,7 +117,7 @@ const Login = ({isUserAuthenticated}) => {
     const signupUser = async () => {
 
         try{
-            let res = await axios.post('http://localhost:8000/signup', signup);
+            let res = await axios.post(`${API_URL}/signup`, signup);
             alert(res.status);
             showError('');
             setSignup(signupInitialValues);
@@ -148,7 +148,7 @@ const Login = ({isUserAuthenticated}) => {
         // api call here 
         try{
             // console.log(login);
-            let res = await axios.post('http://localhost:8000/login', login);
+            let res = await axios.post(`${API_URL}/login`, login);
             showError("");
             sessionStorage.setItem("accessToken", `Bearer ${res.data.accessToken}`);
             sessionStorage.setItem("refreshToken",`Bearer ${res.data.refreshToken}`);

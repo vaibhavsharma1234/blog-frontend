@@ -3,7 +3,7 @@ import axios from 'axios';
 import { API_NOTIFICATION_MESSAGES, SERVICE_URLS } from '../constants/config';
 import { getAccessToken,getType } from '../utils/common-utils';
 
-const API_URL = 'http://localhost:8000';
+const API_URL = 'https://blog-backend-vaibhav2.onrender.com';
 
 const axiosInstance = axios.create({
     baseURL: API_URL,
@@ -141,4 +141,4 @@ for (const [key, value] of Object.entries(SERVICE_URLS)) {
         });
 }
 
-export { API };
+export { API ,API_URL};
