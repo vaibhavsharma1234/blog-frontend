@@ -7,6 +7,7 @@ import { getAccessToken } from "../../utils/common-utils";
 import { useLocation, useNavigate } from "react-router-dom"
 import { DataContext } from "../../context/DataProvider";
 import AddCircleIcon from '@mui/icons-material/AddCircle';
+import { API_URL } from "../../service/api";
 const Container = styled(Box)(({theme})=>({
     margin : "50px 100px",
     [theme.breakpoints.down("md")]:{
@@ -75,7 +76,7 @@ const CreatePost = () => {
 
 
                 // api call toupload image then i will get url  then put urlin post.picture 
-                let res = await axios.post('http://localhost:8000/file/upload', data);
+                let res = await axios.post(`${API_URL}/file/upload`, data);
                 post.picture = res.data;// todo
             }
         }
@@ -90,7 +91,7 @@ const CreatePost = () => {
         setPost({ ...post, [e.target.name]: e.target.value });
     }
     const savePost = async () => {
-        let res = await axios.post('http://localhost:8000/create', post, {
+        let res = await axios.post(`${API_URL}/create`, post, {
             headers: {
                 authorization: getAccessToken()
             }

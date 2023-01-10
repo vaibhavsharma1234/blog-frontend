@@ -8,6 +8,7 @@ import { getAccessToken } from "../../utils/common-utils";
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteIcon from '@mui/icons-material/Delete';
 import {DataContext} from "../../context/DataProvider"
+import { API_URL } from "../../service/api";
 // import {Link} from "react-router-dom";
 import Comments from "./comments/Comments"
 
@@ -75,7 +76,7 @@ const DetailView = ()=>{
     
     useEffect(()=>{
         const fetchData = async()=>{
-             let res = await axios.get('http://localhost:8000/posts/post',{
+             let res = await axios.get(`${API_URL}/posts/post`,{
                 params: {
                   id
                   },headers: {
@@ -89,7 +90,7 @@ const DetailView = ()=>{
         fetchData();
     })
     const deleteBlog = async()=>{
-        let res = await axios.delete(`http://localhost:8000/details/${id}`,{
+        let res = await axios.delete(`${API_URL}/details/${id}`,{
             params: {
               id
               },headers: {

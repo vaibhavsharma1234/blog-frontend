@@ -8,6 +8,7 @@ import {Box, Grid} from "@mui/material"
 import { getAccessToken } from "../../../../utils/common-utils";
 import { useEffect, useState } from "react";
 import { useSearchParams,Link } from "react-router-dom";
+import { API_URL } from "../../../../service/api";
 import Post from "./SinglePost"
 const Posts = ()=>{
     const [searchParams] = useSearchParams();
@@ -19,7 +20,7 @@ const Posts = ()=>{
     useEffect(()=>{
         const fetchData = async()=>{
             // this will be a get api;
-         let res =  await axios.get('http://localhost:8000/posts',{
+         let res =  await axios.get(`${API_URL}/posts`,{
             params: { category : category || ""},
             headers: {
                 authorization: getAccessToken()

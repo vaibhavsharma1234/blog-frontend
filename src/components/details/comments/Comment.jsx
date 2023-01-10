@@ -8,6 +8,7 @@ import { Box, Typography, styled } from "@mui/material"
 import DeleteIcon from '@mui/icons-material/Delete';
 import axios from "axios"
 import { getAccessToken } from "../../../utils/common-utils";
+import { API_URL } from "../../../service/api";
 const Componenet = styled(Box)`
 margin-top:30px;
 background:#F5F5F5;
@@ -39,7 +40,7 @@ margin-left:auto;
 const Comment = ({ comment,setTogle }) => {
     const { account } = useContext(DataContext);
     const removeComment = async () => {
-        let res = await axios.delete('http://localhost:8000/comment/delete', {
+        let res = await axios.delete(`${API_URL}/comment/delete`, {
             params: {
                 id: comment._id
             },

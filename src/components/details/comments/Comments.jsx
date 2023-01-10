@@ -13,6 +13,7 @@ import { getAccessToken } from "../../../utils/common-utils";
 import { useState, useContext, useEffect } from "react";
 import { DataContext } from "../../../context/DataProvider";
 import Comment from "./Comment"
+import { API_URL } from "../../../service/api";
 const Container = styled(Box)`
 margin-Top:100px;
 display:flex;
@@ -62,7 +63,7 @@ const Comments = ({ post }) => {
         const getData = async () => {
             // api call 
             // id bhjo of a post 
-            let res = await axios.get(`http://localhost:8000/comments/${post._id}`, {
+            let res = await axios.get(`${API_URL}/comments/${post._id}`, {
                 params: {
                     id1
                 }, headers: {
@@ -76,7 +77,7 @@ const Comments = ({ post }) => {
         getData()
     }, [post,togle])
     const addComment = async (e) => {
-        let res = await axios.post('http://localhost:8000/comment/new', comment, {
+        let res = await axios.post(`API_URL/comment/new`, comment, {
             headers: {
                 authorization: getAccessToken()
             }
